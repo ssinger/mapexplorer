@@ -48,8 +48,9 @@ test:
 
 production:
   adapter: postgresql
+  host: localhost
   encoding: unicode
   database: mapexplorer_production
   pool: 5
-  username: mapexplorer
+  username: ssinger
   password:
