@@ -1,0 +1,44 @@
+<div id='map-container' class="map-style">
+<div   id="map" ></div>
+</div>
+<script defer="defer" type="text/javascript">
+  var map, layer;
+  
+  map = new OpenLayers.Map( 'map', 
+  {
+  maxExtent: new OpenLayers.Bounds(-75.7001,45.4166,-75.674,45.435).transform(new OpenLayers.Projection("EPSG:4326"),new OpenLayers.Projection("EPSG:900913")),
+  projection: "EPSG:900913",
+  units: "degree",
+  restrictedExtent: new OpenLayers.Bounds(-75.7001,45.4166,-75.674,45.435).transform(new OpenLayers.Projection("EPSG:4326"),new OpenLayers.Projection("EPSG:900913")),
+  controls : [new OpenLayers.Control.Attribution(),
+  new OpenLayers.Control.PanZoomBar(),
+  new OpenLayers.Control.Navigation()]
+  
+  });
+  layer = new OpenLayers.Layer.XYZ("PGCon Map",
+  ["http://a.tiles.mapbox.com/v3/ssinger.pgcon/${z}/${x}/${y}.png",
+  "http://b.tiles.mapbox.com/v3/ssinger.pgcon/${z}/${x}/${y}.png",
+  "http://c.tiles.mapbox.com/v3/ssinger.pgcon/${z}/${x}/${y}.png"
+  ]
+  , { attribution: "CC-BY-SA. OpenStreetMap & Contributors",
+  sphericalMercator: true,
+  minZoomLevel: 15,
+  maxZoomLevel: 18,
+  numZoomLevels:4,
+  zoomOffset: 15,
+  resolutions: [ 4.777314266967774, 2.388657133483887, 
+  1.1943285667419434, 0.597164283],
+  units:"degree",
+  projection: "EPSG:900913",
+  }
+  );
+  map.addLayer(layer);
+  map.setCenter(
+  new OpenLayers.LonLat(-75.68715,45.424).transform(
+  new OpenLayers.Projection("EPSG:4326"),
+  map.getProjectionObject()),1,true,true);
+ 
+		     
+
+</script>
+	
