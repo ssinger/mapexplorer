@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 1) do
   create_table "points", :force => true do |t|
     t.float  "lat"
     t.float  "lon"
-    t.string "type"
+    t.string "point_type"
     t.string "description"
   end
 
