@@ -1,6 +1,10 @@
 <%= render "map" %>
 <script defer="defer" type="text/javascript">
 
+  /**
+   * This javascript adds in the list of 'interesting' points'
+   * and associated popups.
+   */  
   PointClickHandler = function (latlon,description) {
     this.latlon=latlon;
     this.description=description;
@@ -13,10 +17,17 @@
 
   var POIMapping=new Array();
 
- var client = new XMLHttpRequest();
+  /**
+   * Request the list of points from the server via 
+   * an HTTP GET request.
+   */
+  var client = new XMLHttpRequest();
   client.open("GET",'<%= pgconmap_points_path %>' ,true);
   client.onreadystatechange=function() {
     if(client.readyState==4 && client.status==200) {
+      /**
+       *  The response is a JSON array of hashes (or should be)
+       */
       var points=JSON.parse(client.responseText);
       var markers = new OpenLayers.Layer.Markers("markers");
       var size = new OpenLayers.Size(21,25);
@@ -27,15 +38,30 @@
         var p=new OpenLayers.LonLat(points[i]['lon'],points[i]['lat']).transform(new OpenLayers.Projection("EPSG:4326"),new OpenLayers.Projection("EPSG:900913"));
 	var marker=new OpenLayers.Marker(p,icon.clone());
         var description=points[i]['description'];
+        /**
+         * Create a handler class for each point.  This will have access
+         * to the description.  The handler class will display a popup
+         * with the description when clicked.
+         */
         var eventHandler = new PointClickHandler(p,description);
         marker.events.register('mousedown',eventHandler,eventHandler.onEvent);
         markers.addMarker(marker);
-        POIMapping[i]=p;
+
+        /**
+         * Built up a list of POI's that the user can click on to
+         * center the map on the POI. 
+         */
+        POIMapping[i]=p;		       
         var POI_dom=document.getElementById('poi-list');
         var li=document.createElement('li');
         var link=document.createElement('a');
         link.appendChild(document.createTextNode(description));
         li.appendChild(link);
+        /**
+         * The coordinates of each POI are stored in the global array.
+         * The event handler for the 'on click' method of each link
+         * will lookup those coordinates. 
+         */
         link.setAttribute('onclick','map.setCenter(POIMapping[' + i + '])');
         POI_dom.appendChild(li);
 		       
@@ -45,6 +71,7 @@
   client.send()
 
 </script>
+
 <ul id='poi-list'>
 
 </ul>
