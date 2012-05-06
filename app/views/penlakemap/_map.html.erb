@@ -3,13 +3,13 @@
 </div>
 <script defer="defer" type="text/javascript">
   var map, layer;
-  
+  var bounds= new OpenLayers.Bounds(-79.2274,45.3087,-79.0338,45.3666).transform(new OpenLayers.Projection("EPSG:4326"),new OpenLayers.Projection("EPSG:900913"));
   map = new OpenLayers.Map( 'map', 
   {
-  maxExtent: new OpenLayers.Bounds(-79.202,45.3084,-79.0523,45.4223).transform(new OpenLayers.Projection("EPSG:4326"),new OpenLayers.Projection("EPSG:900913")),
+  maxExtent:bounds,
   projection: "EPSG:900913",
   units: "degree",
-  restrictedExtent: new OpenLayers.Bounds(-79.202,45.3084,-79.0523,45.4223).transform(new OpenLayers.Projection("EPSG:4326"),new OpenLayers.Projection("EPSG:900913")),
+  restrictedExtent: bounds,
   controls : [new OpenLayers.Control.Attribution(),
   new OpenLayers.Control.PanZoomBar(),
   new OpenLayers.Control.Navigation()]
