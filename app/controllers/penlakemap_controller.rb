@@ -6,6 +6,9 @@ class PenlakemapController < ActionController::Base
   def about
     render :layout=>'application'
   end
+  def downloads
+    render :layout=>'application'
+  end
   def points
     points=Point.where("point_type='penlakemap'")
     points_array=[]

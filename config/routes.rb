@@ -6,6 +6,7 @@ Mapexplorer::Application.routes.draw do
   match '/view', :controller=>'application',:action=>'view'
   match '/penlakemap', :controller=>'penlakemap',:action=>'view'
   match '/penlakemap/about', :controller=>'penlakemap',:action=>'about'
+  match '/penlakemap/downloads', :controller=>'penlakemap',:action=>'downloads'
   match '/penlakemap/points', :controller=>'penlakemap',:action=>'points'
   match '/pgconmap', :controller=>'pgconmap',:action=>'view'
   match '/pgconmap/about', :controller=>'pgconmap',:action=>'about'
