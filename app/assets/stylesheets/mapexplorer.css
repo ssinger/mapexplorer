@@ -73,7 +73,8 @@ h1 {
     ;background-color: #f0f0f0;
     background-color: #000000;
     font-weight: bold;
-   border-width: 0px;
+    border-width: 0px;
+    font-family: "Copperplate / Copperplate Gothic Light", "sans-serif";
 }
 .map-style {
     width:100%;
