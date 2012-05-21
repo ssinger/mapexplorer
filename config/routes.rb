@@ -12,6 +12,15 @@ Mapexplorer::Application.routes.draw do
   match '/pgconmap/about', :controller=>'pgconmap',:action=>'about'
   match '/pgconmap/points', :controller=>'pgconmap',:action=>'points'
   match '/pgconmap/interest', :controller=>'pgconmap',:action=>'interest'
+
+  match '/burlingtonrec', :controller=>'burlingtonrec',:action=>'view'
+  match '/burlingtonrec/about', :controller=>'burlingtonrec',:action=>'about'
+  match '/burlingtonrec/pools', :controller=>'burlingtonrec',:action=>'pools'
+  match '/burlingtonrec/splash', :controller=>'burlingtonrec',:action=>'splash'
+  match '/burlingtonrec/pools/list', :controller=>'burlingtonrec',:action=>'pools_list'
+  match '/burlingtonrec/splash/list', :controller=>'burlingtonrec',:action=>'splash_list'
+  
+
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
