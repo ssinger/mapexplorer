@@ -29,7 +29,7 @@ protect_from_forgery
     points.each do |p|
       url=''
       if p.url != nil
-        url=sprintf "<a href=\"%s\">%s" , p.url,p.url
+        url=sprintf "<a href=\"%s\">Additional Information</a>" , p.url
       end
       name='Swimming Pool'
       if p.name != nil
@@ -37,7 +37,7 @@ protect_from_forgery
       end
       elem= { 'lat'=>p.lat,
         'lon'=>p.lon,
-        'description'=>name + ' ' + url,
+        'description'=>name + ' ' + url + '<br>source:'+  p.source,
         'name' => name,
         'city' => p.city
       }
