@@ -31,10 +31,14 @@ protect_from_forgery
       if p.url != nil
         url=sprintf "<a href=\"%s\">%s" , p.url,p.url
       end
+      name='Swimming Pool'
+      if p.name != nil
+        name=p.name
+      end
       elem= { 'lat'=>p.lat,
         'lon'=>p.lon,
-        'description'=>p.name + ' ' + url,
-        'name' => p.name,
+        'description'=>name + ' ' + url,
+        'name' => name,
         'city' => p.city
       }
       points_array.push(elem)

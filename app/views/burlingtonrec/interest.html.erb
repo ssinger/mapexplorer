@@ -63,7 +63,7 @@
          * The event handler for the 'on click' method of each link
          * will lookup those coordinates. 
          */
-        link.setAttribute('onclick','map.setCenter(POIMapping[' + i + '])');
+        link.setAttribute('onclick','map.moveTo(POIMapping[' + i + '],4);');
         POI_dom.appendChild(li);
 		       
       }//for
