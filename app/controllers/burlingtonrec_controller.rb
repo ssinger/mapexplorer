@@ -1,5 +1,6 @@
 class BurlingtonrecController < ActionController::Base
 protect_from_forgery
+before_filter LogFilter
  def view
    @title='Burlington & Oakville Recreational Spots'
     render :layout=>'application'

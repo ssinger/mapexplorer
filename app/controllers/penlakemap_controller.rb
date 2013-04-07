@@ -1,5 +1,6 @@
 class PenlakemapController < ActionController::Base
   protect_from_forgery
+  before_filter LogFilter
   def view
     @title='Peninsula Lake Map (Huntsville, Ontario)'
     render :layout=>'application'

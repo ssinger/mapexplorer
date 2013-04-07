@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 2) do
+ActiveRecord::Schema.define(:version => 3) do
 
   create_table "facilities", :force => true do |t|
     t.float  "lat"
@@ -28,6 +28,14 @@ ActiveRecord::Schema.define(:version => 2) do
     t.float  "lon"
     t.string "point_type"
     t.string "description"
+  end
+
+  create_table "web_visits", :force => true do |t|
+    t.datetime "date"
+    t.string   "client"
+    t.string   "agent"
+    t.string   "url"
+    t.string   "referal"
   end
 
 end

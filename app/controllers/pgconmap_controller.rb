@@ -1,5 +1,6 @@
 class PgconmapController < ActionController::Base
   protect_from_forgery
+  before_filter LogFilter
   def view
     @title='MapExplorer - PGCon Map (Ottawa, Ontario)'
     render :layout=>'application'
