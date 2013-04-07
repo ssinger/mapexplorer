@@ -1,12 +1,15 @@
 class PenlakemapController < ActionController::Base
   protect_from_forgery
   def view
+    @title='Peninsula Lake Map (Huntsville, Ontario)'
     render :layout=>'application'
   end
   def about
+    @title='Peninsula Lake Map (Huntsville, Ontario)'
     render :layout=>'application'
   end
   def downloads
+    @title='Peninsula Lake Map (Huntsville, Ontario)'
     render :layout=>'application'
   end
   def points

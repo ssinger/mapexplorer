@@ -1,19 +1,23 @@
 class BurlingtonrecController < ActionController::Base
 protect_from_forgery
  def view
+   @title='Burlington & Oakville Recreational Spots'
     render :layout=>'application'
   end
   def about   
+    @title='Burlington & Oakville Recreational Spots'
     render :layout=>'application'
   end
  
   def pools 
+    @title='Burlington & Oakville Recreational Spots'
     @request_url=burlingtonrec_pools_list_path
     render :action=>'interest',:layout=>'application'
   end
   def splash
-      @request_url=burlingtonrec_splash_list_path
-      render :action=>'interest',:layout=>'application'
+    @title='Burlington & Oakville Recreational Spots'
+    @request_url=burlingtonrec_splash_list_path
+    render :action=>'interest',:layout=>'application'
   end
   def pools_list
     points=Facility.where("facility_type like '%Pool%'").order('name')    
@@ -47,6 +51,7 @@ protect_from_forgery
     render :text=>@points_json
   end
   def interest
+    @title='Burlington & Oakville Recreational Spots'
     render :layout=>'application'
   end
 end

@@ -1,9 +1,11 @@
 class PgconmapController < ActionController::Base
   protect_from_forgery
   def view
+    @title='MapExplorer - PGCon Map (Ottawa, Ontario)'
     render :layout=>'application'
   end
   def about
+    @title='MapExplorer - PGCon Map (Ottawa, Ontario)'
     render :layout=>'application'
   end
   def points
